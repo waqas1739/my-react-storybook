@@ -1,0 +1,33 @@
+.signals-container {
+    display: flex;
+    gap: 25px;
+    justify-content: right;
+    overflow: hidden;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .signals-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .signals-button.active {
+    border-color: rgb(36, 131, 107);
+  }
+  
+  .signal-switch {
+    display: flex;
+    gap: 15px;
+    justify-content: right;
+    overflow: hidden;
+    align-items: right;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
