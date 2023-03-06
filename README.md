@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+This is a simple storybook with 5 component with basic functionality
+
+You can build the project by doing npm install and then npm run storybook
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
