@@ -1,9 +1,9 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
-import GridComponent from "./GridComponent";
+import GridComponent from "./ViewComponent";
 
 export default {
-  title: "Components/GridComponent",
+  title: "Components/ViewComponent",
   component: GridComponent,
 } as Meta;
 

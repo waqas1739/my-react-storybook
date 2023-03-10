@@ -1,7 +1,7 @@
 
 import React, { useRef, useState } from "react";
 import LineChart from "./LineChart"
-import SignalsData from "./Signal";
+//import SignalsData from "./Signal";
 
 
 const GridComponent: React.FC = () => {
@@ -51,10 +51,6 @@ const GridComponent: React.FC = () => {
 
   return (
     <div>
-      <SignalsData
-        activeSignals={activeSignals}
-        onsignalChange={handleSignals}
-      />
       <LineChart 
       data={chartData} 
       activeData={activeSignals} 
