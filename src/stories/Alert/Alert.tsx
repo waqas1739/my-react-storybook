@@ -1,42 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 export type AlertProps = {
   type: 'success' | 'warning' | 'danger';
   message: string;
+  onClose?: () => void;
 };
 
-const Alert: React.FC<AlertProps> = ({ type, message }) => {
-  let bgColor = '';
-  let icon = '';
-  switch (type) {
-    case 'success':
-      bgColor = 'bg-green-100';
-      icon = 'check-circle';
-      break;
-    case 'warning':
-      bgColor = 'bg-yellow-100';
-      icon = 'exclamation-triangle';
-      break;
-    case 'danger':
-      bgColor = 'bg-red-100';
-      icon = 'times-circle';
-      break;
-    default:
-      break;
+const AlertContainer = styled.div`
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  position: relative;
+
+  &.success {
+    background-color: #d1e7dd;
+    color: #155724;
+    border-color: #c3e6cb;
   }
 
-  return (
-    <div className={`px-4 py-3 rounded-md ${bgColor}`} role="alert">
-      <div className="flex">
-        <div className="py-1">
-          <i className={`fas fa-${icon} text-lg text-${type === 'success' ? 'green' : type === 'warning' ? 'yellow' : 'red'}-600`}></i>
-        </div>
-        <div className="ml-3">
-          <p className="text-sm font-medium">{message}</p>
-        </div>
-      </div>
-    </div>
-  );
+  &.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+  }
+
+  &.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+  }
+
+  & .close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    color: #6c757d;
+  }
+`;
+
+const Alert: React.FC<AlertProps> = ({ type, message, onClose }) => {
+  const [visible, setVisible] = useState(true);
+
+  const handleClose = () => {
+    setVisible(false);
+    onClose && onClose();
+  };
+
+  return visible ? (
+    <AlertContainer className={`alert ${type}`}>
+      <span className="close-button" onClick={handleClose}>
+        &times;
+      </span>
+      {message}
+    </AlertContainer>
+  ) : null;
 };
 
 export default Alert;
