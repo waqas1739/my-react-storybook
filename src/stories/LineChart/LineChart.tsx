@@ -25,6 +25,7 @@ interface LineChartProps {
     activeData: number[]
 }
 
+
 const LineChart: React.FC<LineChartProps> = ({ data }) => {
     const [chartData, setChartData] = useState({
         labels: Array.from({ length: data.length }, (_, i) => `${i + 1}`),
@@ -33,10 +34,20 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
                 label: "Line Chart 1",
                 data: data,
                 fill: false,
-                borderColor: "rgb(75, 192, 192)",
                 tension: 0.1,
                 yAxis: 'y',
                 stepped: true,
+                borderColor: "#1f8ef1",
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBackgroundColor: "#1f8ef1",
+                pointBorderColor: "rgba(255,255,255,0)",
+                pointHoverBackgroundColor: "#1f8ef1",
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
             },
             {
                 label: "Line Chart 2",
@@ -46,6 +57,7 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
                 tension: 0.1,
                 yAxis: 'y1',
                 stepped: true,
+
             },
         ],
     });
@@ -120,6 +132,7 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
     const chartOptions: ChartOptions<'line'> = {
         scales: {
             x: {
+
                 title: {
                     display: true,
                     text: 'Values',
@@ -130,6 +143,7 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
                 },
                 ticks: {
                     color: '#9BD0F5',
+                    padding: 20,
                 },
             },
             y: {
