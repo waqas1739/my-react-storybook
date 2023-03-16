@@ -1,5 +1,5 @@
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Story, Meta } from "@storybook/react/types-6-0";
 import ToggleSwitch, { ToggleSwitchProps } from "./ToggleSwitch";
 
 export default {
@@ -9,8 +9,8 @@ export default {
 
 const Template: Story<ToggleSwitchProps> = (args) => <ToggleSwitch {...args} />;
 
-export const Basic = Template.bind({});
-Basic.args = {
-  label: "Toggle me",
-  onChange: (isChecked) => console.log(`Toggle switch is now ${isChecked}`),
+export const Default = Template.bind({});
+Default.args = {
+  label: "Toggle Switch",
+  onChange: (isChecked) => console.log(isChecked),
 };
